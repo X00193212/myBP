@@ -17,6 +17,6 @@ jobs:
       - name: Build Project for release
         run: dotnet build --configuration release
       - name: Run xunit unit tests
-        run: dotnet test myBP/BP.Tests/BP.Tests.csproj
+        run: dotnet test BP.Tests/BP.Tests.csproj
       - name: Run BDD unit tests
-        run:  dotnet test myBP/UnitTestsBDD/UnitTestsBDD.csproj 
+        run:  dotnet test UnitTestsBDD/UnitTestsBDD.csproj 
