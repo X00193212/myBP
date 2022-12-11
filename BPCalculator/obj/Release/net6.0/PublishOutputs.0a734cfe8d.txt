@@ -1,0 +1,7 @@
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\BPCalculator.exe
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\appsettings.Development.json
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\appsettings.json
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\BPCalculator.dll
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\BPCalculator.deps.json
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\BPCalculator.runtimeconfig.json
+C:\Users\ruchira\CSD\projects\myBP\BPCalculator\bin\Publish\BPCalculator.pdb
