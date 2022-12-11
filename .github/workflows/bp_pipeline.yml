@@ -1,6 +1,6 @@
 name: x00193212_CI_CD_Pipeline
 env:
-  AZURE_WEBAPP_NAME: 'BPCalculator3212'            # set this to your application's name
+  AZURE_WEBAPP_NAME: 'BPCalculator'            # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'  
   NUGET_VERSION: '6.0.x'
 on: 
@@ -36,7 +36,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Run MSBuild
-        run: msbuild .\SampleWebApplication.sln
+        run: msbuild .\BPCalculator.sln
  
     # Deploy to Azure Web apps
       - name: Run Azure webapp deploy action using publish profile credentials
@@ -44,4 +44,4 @@ jobs:
         with: 
           app-name: ${{ env.AZURE_WEBAPP_NAME }}                        # your app name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication'
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/BPCalculator'
