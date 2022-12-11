@@ -9,9 +9,7 @@ namespace BPCalculator
         [Display(Name="Low Blood Pressure")] Low,
         [Display(Name="Ideal Blood Pressure")]  Ideal,
         [Display(Name="Pre-High Blood Pressure")] PreHigh,
-        [Display(Name ="High Blood Pressure")]  High,
-
-         [Display(Name ="Not Predicted")]  NotPredicted
+        [Display(Name ="High Blood Pressure")]  High
     };
 
     public class BloodPressure
@@ -49,7 +47,7 @@ namespace BPCalculator
                     return BPCategory.High;
                 }
                 else{
-                   return BPCategory.NotPredicted;  
+                    throw new NotImplementedException("not implemented yet");  
                 }
                      
             }
