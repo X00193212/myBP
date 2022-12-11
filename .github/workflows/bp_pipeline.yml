@@ -1,0 +1,22 @@
+name: x00193212_CI_CD_Pipeline
+on: 
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: windows-latest 
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .net 6.0
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Build Project for release
+        run: dotnet build --configuration release
+      - name: Run xunit unit tests
+        run: dotnet test myBP/BP.Tests/BP.Tests.csproj
+      - name: Run BDD unit tests
+        run:  dotnet test myBP/UnitTestsBDD/UnitTestsBDD.csproj 
