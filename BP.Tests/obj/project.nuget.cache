@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cj4Qe/rCU0tbDOZugbAZR5fCsgiKgOJW6Ht55s8jhG0XLjdbDnLDJf4vBoeVsa7qCm3sA/rJYd0Heeu4KwAmQQ==",
+  "dgSpecHash": "7i/7FndCIt1TX7Z5CjYXt059Q7b90NfJmyxqQOlinHIZ6fAVGrm5Ya1R8MnqgqTXeZtxI3x39dS0Vf8KB7AuIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BP.Tests\\BP.Tests.csproj",
+  "projectFilePath": "C:\\Users\\soura\\ruchira\\myBP\\BP.Tests\\BP.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\soura\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

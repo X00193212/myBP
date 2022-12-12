@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj",
+      "projectUniqueName": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj",
       "projectName": "BPCalculator",
-      "projectPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj",
+      "projectPath": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj",
       "packagesPath": "C:\\Users\\soura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\obj\\",
+      "outputPath": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\soura\\AppData\\Roaming\\NuGet\\NuGet.Config"
