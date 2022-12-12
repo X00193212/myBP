@@ -20,28 +20,40 @@ jobs:
 
       - name: Build Project for release
         run: dotnet build --configuration release
+
       - name: Run xunit unit tests
         run: dotnet test BP.Tests/BP.Tests.csproj
+
       - name: Run BDD unit tests
         run:  dotnet test UnitTestsBDD/UnitTestsBDD.csproj 
 
-      - name: Install Nuget
-        uses: nuget/setup-nuget@v1
-        with:
-            nuget-version: ${{ env.NUGET_VERSION}}
-      - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
-        run: nuget restore
-  
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-      - name: Run MSBuild
-        run: msbuild .\BPCalculator.sln
- 
-    # Deploy to Azure Web apps
-      - name: Run Azure webapp deploy action using publish profile credentials
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
-        with: 
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}                        # your app name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/BPCalculatorX3212'
+        with:
+          app-name: 'BPCalculatorX3212'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
