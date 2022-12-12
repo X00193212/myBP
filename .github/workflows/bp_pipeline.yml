@@ -18,19 +18,16 @@ jobs:
       - name: Build Project for release
         run: dotnet build --configuration release
 
-      - name: Analyze code with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: Sonarscanner for dotnet
+        uses: Secbyte/dotnet-sonarscanner@v2.3
         with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.organization=X00193212
-            -Dsonar.projectKey=X00193212_myBP
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.verbose=true
-
-            env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          buildCommand: dotnet build .
+          projectKey: Bank_CI_GA
+          projectName: Bank_CI_GA
+          sonarOrganisation: sonarcloudorg-gc
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run xunit unit tests
         run: dotnet test BP.Tests/BP.Tests.csproj
