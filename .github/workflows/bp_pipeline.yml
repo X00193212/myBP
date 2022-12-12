@@ -27,7 +27,7 @@ jobs:
           projectBaseDir: ./BPCalculator
           args: >
             -Dsonar.organization=X00193212
-            -Dsonar.projectKey=X00193212_myBP
+            -Dsonar.projectKey=x00193212
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.verbose=true
             -Dsonar.exclusions=bin/**
