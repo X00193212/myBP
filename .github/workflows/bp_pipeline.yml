@@ -21,7 +21,7 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectBaseDir: my-custom-directory
+          projectBaseDir: .
           args: >
             -Dsonar.organization=X00193212
             -Dsonar.projectKey=X00193212_myBP
