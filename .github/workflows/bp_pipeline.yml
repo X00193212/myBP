@@ -23,7 +23,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.organization=X00193212
+            -Dsonar.organization=x00193212
             -Dsonar.projectKey=X00193212_myBP
             -Dsonar.verbose=true
         env:
