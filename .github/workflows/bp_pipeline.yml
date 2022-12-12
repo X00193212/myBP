@@ -24,18 +24,13 @@ jobs:
       - name: Analyze code with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectBaseDir: ./BPCalculator
+          projectBaseDir: .
           args: >
             -Dsonar.organization=X00193212
             -Dsonar.projectKey=x00193212
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.verbose=true
-            -Dsonar.exclusions=bin/**
-            -Dsonar.exclusions=obj/**
-            -Dsonar.exclusions=Pages/**
-            -Dsonar.exclusions=Properties/**
-            -Dsonar.exclusions=wwwroot/**
-            -Dsonar.inclusions=BPCalculator.cs
+
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
