@@ -1,6 +1,6 @@
 name: x00193212_CI_CD_Pipeline
 env:
-  AZURE_WEBAPP_NAME: 'BPCalculatorX3212'            ## set this to your application's name
+  AZURE_WEBAPP_NAME: 'BPCalculatorX3212'           
   AZURE_WEBAPP_PACKAGE_PATH: '.'  
   NUGET_VERSION: '6.0.x'
 on: 
