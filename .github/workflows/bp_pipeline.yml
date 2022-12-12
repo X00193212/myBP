@@ -22,9 +22,9 @@ jobs:
         uses: Secbyte/dotnet-sonarscanner@v2.3
         with:
           buildCommand: dotnet build .
-          projectKey: X00193212
-          projectName: Bank_CI_GA
-          sonarOrganisation: X00193212_myBP
+          projectKey: X00193212_myBP
+          projectName: myBP
+          sonarOrganisation: X00193212
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
