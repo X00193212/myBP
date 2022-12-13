@@ -1,6 +1,6 @@
-name: x00193212_CI_CD_Pipeline
+name: Blood Pressure App(CI/CD)
 'on':
-  workflow_dispatch: null
+  workflow_dispatch: 
 jobs:
   build:
     runs-on: ubuntu-latest
