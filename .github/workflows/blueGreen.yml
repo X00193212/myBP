@@ -42,5 +42,14 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}     # Define secret variable in environment
         slot-name: stage
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+    
+    - name : Install Chrome
+      uses: abhi1693/setup-browser@v0.3.4
+      with:
+        browser: chrome
+        version: 108.0.5359.x
+
+    - name: Run BDD unit tests
+      run:  dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp/SeleniumTest/SelemiumTest.csproj 
 
    
