@@ -22,10 +22,10 @@ jobs:
     needs: build_unit_test
     environment:
       name: QA
-      url: https://bpcalculatorx3212-staging.azurewebsites.net                               
+      url: https://bpcalculator1-stage.azurewebsites.net                              
     runs-on: windows-latest
     env:
-      AZURE_WEBAPP_NAME: BPCalculatorX3212            # set this to your application's name
+      AZURE_WEBAPP_NAME: BPCalculator1            # set this to your application's name
       AZURE_WEBAPP_PACKAGE_PATH: '.'              # set this to the path to your web app project
     steps:
     - uses: actions/checkout@v2
