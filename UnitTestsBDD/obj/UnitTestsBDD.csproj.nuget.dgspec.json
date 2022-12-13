@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ruchira\\CSD\\projects\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj": {}
+    "C:\\Users\\soura\\ruchira\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj": {
+    "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj",
+        "projectUniqueName": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj",
         "projectName": "BPCalculator",
-        "projectPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj",
+        "projectPath": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj",
         "packagesPath": "C:\\Users\\soura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\obj\\",
+        "outputPath": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soura\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -60,14 +60,14 @@
         }
       }
     },
-    "C:\\Users\\ruchira\\CSD\\projects\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj": {
+    "C:\\Users\\soura\\ruchira\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj",
+        "projectUniqueName": "C:\\Users\\soura\\ruchira\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj",
         "projectName": "UnitTestsBDD",
-        "projectPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj",
+        "projectPath": "C:\\Users\\soura\\ruchira\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj",
         "packagesPath": "C:\\Users\\soura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\UnitTestsBDD\\obj\\",
+        "outputPath": "C:\\Users\\soura\\ruchira\\myBP\\UnitTestsBDD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soura\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -82,8 +82,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj": {
-                "projectPath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\BPCalculator\\BPCalculator.csproj"
+              "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj": {
+                "projectPath": "C:\\Users\\soura\\ruchira\\myBP\\BPCalculator\\BPCalculator.csproj"
               }
             }
           }
@@ -113,6 +113,12 @@
             "SpecFlow.xUnit": {
               "target": "Package",
               "version": "[3.9.74, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
             },
             "xunit": {
               "target": "Package",

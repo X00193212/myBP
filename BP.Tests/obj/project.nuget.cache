@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7i/7FndCIt1TX7Z5CjYXt059Q7b90NfJmyxqQOlinHIZ6fAVGrm5Ya1R8MnqgqTXeZtxI3x39dS0Vf8KB7AuIQ==",
+  "dgSpecHash": "cnYFaa27FWujRwlVqJ54aNbi+31tDn3nHuNp3QcX2gJ8CuyqHxg1kGJtbA5su/6+oz1S/swakYRbIXwFTfgjkQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\soura\\ruchira\\myBP\\BP.Tests\\BP.Tests.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\soura\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\soura\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\microsoft.net.test.sdk\\17.1.0\\microsoft.net.test.sdk.17.1.0.nupkg.sha512",

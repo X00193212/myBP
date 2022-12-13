@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+R8wRcmvH5So2LCB7qrwb0t2nD283cxNCiLwbW23XZ/yEER/lQuQXdlFscXeTsFeZC2FDhuEAEyPlicS4HyVNA==",
+  "dgSpecHash": "huzb2QJugqZkVbMaZWSyfhXI52OU8cpOOD2PMkFXkXL4FBXpvlpOcDHf8FpAfjCoF1Bl/nP7YNhs7icEpThRSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ruchira\\CSD\\projects\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj",
+  "projectFilePath": "C:\\Users\\soura\\ruchira\\myBP\\UnitTestsBDD\\UnitTestsBDD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\soura\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
+    "C:\\Users\\soura\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\fluentassertions\\5.10.3\\fluentassertions.5.10.3.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\gherkin\\19.0.3\\gherkin.19.0.3.nupkg.sha512",
     "C:\\Users\\soura\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
