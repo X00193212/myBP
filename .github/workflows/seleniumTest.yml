@@ -7,19 +7,19 @@ on:
 jobs:
   install_chrome_and_selenium_test:
     name : Install Chrome
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
-=======
-      - uses: abhi1693/setup-browser@v0.3.4
+
+      - uses: actions/checkout@v2
+      - name: Setup .net 6.0
+        uses: actions/setup-dotnet@v1
         with:
-          browser: chrome
-          version: 108.0.5359
->>>>>>> 3596b9316c0868c5f40123f089bf1926e25f95c5
+          dotnet-version: 6.0.x
+
+      - name: Build Project for release
+        run: dotnet build --configuration release
 
       - name: Run BDD unit tests
-        run:  dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp/SeleniumTest/SelemiumTest.csproj 
-
-   
+        run:  dotnet test SeleniumTest/SelemiumTest.csproj    
