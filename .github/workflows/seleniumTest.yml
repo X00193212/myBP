@@ -1,5 +1,5 @@
 
-name: Build Test Deploy BMI
+name: Selenium tests
 
 on:
   workflow_dispatch:                                # manually triggered
