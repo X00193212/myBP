@@ -1,0 +1,20 @@
+
+name: Build Test Deploy BMI
+
+on:
+  workflow_dispatch:                                # manually triggered
+
+jobs:
+  install_chrome_and_selenium_test:
+    name : Install Chrome
+    runs-on: windows-latest
+    steps:
+      - uses: abhi1693/setup-browser@v0.3.4
+        with:
+          browser: chrome
+          version: 108.0.5359.95
+
+      - name: Run BDD unit tests
+        run:  dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp/SeleniumTest/SelemiumTest.csproj 
+
+   

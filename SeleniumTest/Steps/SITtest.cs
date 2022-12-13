@@ -12,7 +12,7 @@ namespace SeleniumTest.Steps
     {
         static IWebDriver driver = new ChromeDriver();
 
-        static String webAppUri = "https://bpcalculatorx3212.azurewebsites.net/";
+        static String webAppUri = "https://bpcalculator1-stage.azurewebsites.net";
 
         [Given(@"launch url")]
         public void launchUrl()
