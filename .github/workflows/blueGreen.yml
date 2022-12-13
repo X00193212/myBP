@@ -43,3 +43,13 @@ jobs:
         slot-name: stage
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
     
+
+    # login to Azure account
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}                         # JSON objects which represents service principal
+
+    # blue/green
+    - name: swap QA and production slots
+      run: |
+        az webapp deployment slot swap -n BPCalculator1 -g DefaultResourceGroup-NEU --slot stage --target-slot production

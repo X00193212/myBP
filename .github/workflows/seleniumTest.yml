@@ -21,5 +21,5 @@ jobs:
       - name: Build Project for release
         run: dotnet build --configuration release
 
-      - name: Run BDD unit tests
+      - name: Run Acceptance System Tests
         run:  dotnet test SeleniumTest/SeleniumTest.csproj    
