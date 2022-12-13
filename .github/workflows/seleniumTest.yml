@@ -7,7 +7,7 @@ on:
 jobs:
   install_chrome_and_selenium_test:
     name : Install Chrome
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
