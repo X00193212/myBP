@@ -1,7 +1,7 @@
 # build
 # deploy to Azure as App service using blue/green
 
-name: Build Test Deploy BMI
+name: Blood Pressure App(CI/CD)
 
 on:
   workflow_dispatch:                                # manually triggered
