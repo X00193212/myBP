@@ -22,7 +22,7 @@ jobs:
     needs: build_unit_test
     environment:
       name: QA
-      url: https://gc-bmicalculator-ga-staging.azurewebsites.net                                 
+      url: https://bpcalculatorx3212-staging.azurewebsites.net                               
     runs-on: windows-latest
     env:
       AZURE_WEBAPP_NAME: BPCalculatorX3212            # set this to your application's name
