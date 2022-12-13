@@ -53,6 +53,7 @@ namespace SeleniumTest.Steps
             IWebElement resultedBP = driver.FindElement(By.CssSelector("#form1 > div:nth-child(4)"));
             String actual = resultedBP.Text;
             Assert.Equal(expected, actual);
+            driver.Close();
         }
     }
 }
