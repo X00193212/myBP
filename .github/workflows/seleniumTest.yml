@@ -9,10 +9,8 @@ jobs:
     name : Install Chrome
     runs-on: windows-latest
     steps:
-      - uses: abhi1693/setup-browser@v0.3.4
-        with:
-          browser: chrome
-          version: 108.0.5359.95
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
 
       - name: Run BDD unit tests
         run:  dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp/SeleniumTest/SelemiumTest.csproj 
