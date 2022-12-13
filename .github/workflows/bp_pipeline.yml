@@ -1,6 +1,11 @@
-name: Blood Pressure App(CI/CD)
-'on':
-  workflow_dispatch: 
+name: Blood Pressure CI/CD
+
+on: 
+  workflow_dispatch:
+  #push:
+    #branches:
+      #- "main"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,66 +17,83 @@ jobs:
           dotnet-version: 6.0.x
       - name: install code coverage generator
         run: dotnet tool install -g coverlet.console
+
       - name: Build Project for release
         run: dotnet build --configuration release
+
       - name: Run xunit unit tests
-        run: dotnet test BP.Tests/BP.Tests.csproj --collect "Code coverage"
+        run: dotnet test BP.Tests/BP.Tests.csproj --collect "Code coverage" 
+
       - name: Run BDD unit tests
-        run: dotnet test UnitTestsBDD/UnitTestsBDD.csproj
+        run:  dotnet test UnitTestsBDD/UnitTestsBDD.csproj 
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.organization=x00193212 -Dsonar.projectKey=X00193212_myBP
+            -Dsonar.organization=x00193212
+            -Dsonar.projectKey=X00193212_myBP
             -Dsonar.verbose=true
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
-  deploy_test_blue_green:
-    name: 'deploy to staging slot, run E2E tests, swap slots'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  deploy_test_blue_green:                                             
+    name: deploy to staging slot, run E2E tests, swap slots
     needs: build_unit_test
     environment:
       name: QA
-      url: 'https://bpcalculator1-stage.azurewebsites.net'
+      url: https://bpcalculator1-stage.azurewebsites.net                              
     runs-on: windows-latest
     env:
-      AZURE_WEBAPP_NAME: BPCalculator1
-      AZURE_WEBAPP_PACKAGE_PATH: .
+      AZURE_WEBAPP_NAME: BPCalculator1          
+      AZURE_WEBAPP_PACKAGE_PATH: '.'       
     steps:
-      - uses: actions/checkout@v2
-      - name: Publish web app
-        run: >-
-          dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH
-          }}/myapp
-      - name: dotnet publish
-        run: 'dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp'
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: .net-app
-          path: '${{env.DOTNET_ROOT}}/myapp'
-      - name: Run Azure webapp deploy action using publish profile credentials
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: '${{ env.AZURE_WEBAPP_NAME }}'
-          publish-profile: '${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}'
-          slot-name: stage
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
-      - name: install chrome
-        uses: browser-actions/setup-chrome@latest
-      - name: Setup .net 6.0
-        uses: actions/setup-dotnet@v1
-        with:
+    - uses: actions/checkout@v2
+
+    # publish web app ready for deployment to stage
+    - name: Publish web app
+      run: dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
+    
+    - name: dotnet publish
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+        name: .net-app
+        path: ${{env.DOTNET_ROOT}}/myapp
+
+    - name: Run Azure webapp deploy action using publish profile credentials
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}                            
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}     
+        slot-name: stage
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+
+    - name: install chrome
+      uses: browser-actions/setup-chrome@latest
+
+    - name: Setup .net 6.0
+      uses: actions/setup-dotnet@v1
+      with:
           dotnet-version: 6.0.x
-      - name: Build Project for release
-        run: dotnet build --configuration release
-      - name: Run Acceptance System Tests
-        run: dotnet test SeleniumTest/SeleniumTest.csproj
-      - uses: azure/login@v1
-        with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
-      - name: swap QA and production slots
-        run: >
-          az webapp deployment slot swap -n BPCalculator1 -g
-          DefaultResourceGroup-NEU --slot stage --target-slot production
+
+    - name: Build Project for release
+      run: dotnet build --configuration release
+
+    - name: Run Acceptance System Tests
+      run:  dotnet test SeleniumTest/SeleniumTest.csproj    
+
+ # login to Azure account
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}                         # JSON objects which represents service principal
+
+    # blue/green
+    - name: swap QA and production slots
+      run: |
+        az webapp deployment slot swap -n BPCalculator1 -g DefaultResourceGroup-NEU --slot stage --target-slot production
+
