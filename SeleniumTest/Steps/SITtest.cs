@@ -10,13 +10,16 @@ namespace SeleniumTest.Steps
     [Binding]
     public sealed class SITtest
     {
-        static IWebDriver driver = new ChromeDriver();
-
+        
+        static IWebDriver driver;
         static String webAppUri = "https://bpcalculator1-stage.azurewebsites.net";
 
         [Given(@"launch url")]
         public void launchUrl()
         {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--disable-dev-shm-usage");
+            driver = new ChromeDriver(options);
             driver.Url = webAppUri;
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50.00);
         }
